@@ -65,4 +65,5 @@ result = session.post(submit_url, data=payload)
 
 print(result.status_code)
 print(result.url)
-result_soup = BeautifulSoup(result.text, "html.parser")
+result_soup = BeautifulSoup(result.text.lower(), "html.parser")
+print(result_soup.find_all(string=lambda text: text and "" in text))
