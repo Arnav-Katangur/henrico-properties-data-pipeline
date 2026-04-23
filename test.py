@@ -4,6 +4,11 @@ from bs4 import BeautifulSoup
 import json
 import urllib
 import re
+import json
+
+with open("entry_info.local.json", "r", encoding="utf-8") as file:
+    entry_info = json.load(file)
+
 
 url = "https://realestate.henrico.gov/"
 session = requests.Session()
@@ -37,9 +42,9 @@ p_json = {
         "itemsToSubmit": [
             {"n": "P1_PARCEL_ID", "v": ""},
             {"n": "P1_VISION_PID", "v": ""},
-            {"n": "P1_STR_NUM", "v": ""},
+            {"n": "P1_STR_NUM", "v": entry_info['P1_STR_NUM']},
             {"n": "P1_STR_PREFIX", "v": ""},
-            {"n": "P1_ADDRESS", "v": ""},
+            {"n": "P1_ADDRESS", "v": entry_info['P1_ADDRESS']},
             {"n": "P1_STR_UNIT", "v": ""},
             {"n": "P1_USE_CODE", "v": ""},
             {"n": "P1_LEGAL_DESC", "v": ""},
@@ -66,4 +71,5 @@ result = session.post(submit_url, data=payload)
 print(result.status_code)
 print(result.url)
 result_soup = BeautifulSoup(result.text.lower(), "html.parser")
-print(result_soup.find_all(string=lambda text: text and "" in text))
+print(result_soup.prettify())
+print(result_soup.find_all("a"))
