@@ -72,4 +72,8 @@ print(result.status_code)
 print(result.url)
 result_soup = BeautifulSoup(result.text.lower(), "html.parser")
 print(result_soup.prettify())
-print(result_soup.find_all("a"))
+
+#find links
+for link in result_soup.find_all("a"):
+    print(link)
+
