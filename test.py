@@ -5,6 +5,7 @@ import json
 import urllib
 import re
 import json
+from playwright.sync_api import sync_playwright
 
 with open("entry_info.local.json", "r", encoding="utf-8") as file:
     entry_info = json.load(file)
@@ -68,12 +69,13 @@ payload = {
 
 result = session.post(submit_url, data=payload)
 
-print(result.status_code)
-print(result.url)
+#print(result.status_code)
+#print(result.url)
 result_soup = BeautifulSoup(result.text.lower(), "html.parser")
-print(result_soup.prettify())
+#print(result_soup.prettify())
 
-#find links
-for link in result_soup.find_all("a"):
-    print(link)
+#find owner
+for owner in result_soup.find_all(class_=lambda text: text and "t15dataalt" in text.lower()):
+    print(owner.parent)
+
 
