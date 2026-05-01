@@ -10,7 +10,6 @@ from playwright.sync_api import sync_playwright
 with open("entry_info.local.json", "r", encoding="utf-8") as file:
     entry_info = json.load(file)
 
-
 url = "https://realestate.henrico.gov/"
 session = requests.Session()
 
@@ -71,11 +70,19 @@ result = session.post(submit_url, data=payload)
 
 #print(result.status_code)
 #print(result.url)
-result_soup = BeautifulSoup(result.text.lower(), "html.parser")
+result_soup = BeautifulSoup(result.text, "html.parser")
 #print(result_soup.prettify())
 
-#find owner
-for owner in result_soup.find_all(class_=lambda text: text and "t15dataalt" in text.lower()):
-    print(owner.parent)
+#finds table with final link
+table = result_soup.find("table", class_="t15standardalternatingrowcolors")
+first_td = table.find("td")
+link = first_td.find("a")
+
+#goes to full page
+href = link.get("href")
+detail_url = urllib.parse.urljoin(result.url, href)
+detail_page = session.get(detail_url)
+full_data_soup = BeautifulSoup(detail_page.text, "html.parser")
+print(full_data_soup.prettify())
 
 
