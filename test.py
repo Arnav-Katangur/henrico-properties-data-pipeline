@@ -83,6 +83,19 @@ href = link.get("href")
 detail_url = urllib.parse.urljoin(result.url, href)
 detail_page = session.get(detail_url)
 full_data_soup = BeautifulSoup(detail_page.text, "html.parser")
-print(full_data_soup.prettify())
+#print(full_data_soup.prettify())
+
+fields = {
+    "parcel_id": full_data_soup.find(id="P5_PARCEL_ID"),
+    "pid": full_data_soup.find(id="P5_PID"),
+    "state_code": full_data_soup.find(id="P5_STATE_CODE"),
+    "use_code": full_data_soup.find(id="P5_USE_CODE"),
+    "tax_type": full_data_soup.find(id="P5_TAX_TYPE_DESC"),
+    "subdivision": full_data_soup.find(id="P5_SUBDIVISION"),
+    "assessment_price": full_data_soup.find(id="report_R71237002985465692")
+}
+
+for field in fields:
+    print(fields[field].get_text(strip=True))
 
 
