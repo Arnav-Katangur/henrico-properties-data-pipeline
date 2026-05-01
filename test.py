@@ -96,6 +96,6 @@ fields = {
 }
 
 for field in fields:
-    print(fields[field].get_text(strip=True))
+    print(fields[field].get_text())
 
 
