@@ -93,7 +93,8 @@ fields = {
     "tax_type": full_data_soup.find(id="P5_TAX_TYPE_DESC"),
     "subdivision": full_data_soup.find(id="P5_SUBDIVISION"),
     "assessment_price": full_data_soup.find(id="report_R71237002985465692"),
-    "owner": full_data_soup.find(id="P5_OWNER_CUR")
+    "owner": full_data_soup.find(id="P5_OWNER_CUR"),
+    "school_information": full_data_soup.find(id="report_R272557515384942239")
 }
 
 for field in fields:
