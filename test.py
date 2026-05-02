@@ -92,7 +92,8 @@ fields = {
     "use_code": full_data_soup.find(id="P5_USE_CODE"),
     "tax_type": full_data_soup.find(id="P5_TAX_TYPE_DESC"),
     "subdivision": full_data_soup.find(id="P5_SUBDIVISION"),
-    "assessment_price": full_data_soup.find(id="report_R71237002985465692")
+    "assessment_price": full_data_soup.find(id="report_R71237002985465692"),
+    "owner": full_data_soup.find(id="P5_OWNER_CUR")
 }
 
 for field in fields:
