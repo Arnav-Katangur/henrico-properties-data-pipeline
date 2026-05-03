@@ -97,7 +97,8 @@ fields = {
     "school_information": full_data_soup.find(id="report_R272557515384942239"),
     "sq_feet": full_data_soup.find(id="P5_RES_SQ_FT_FIN_LIV"),
     "year_built": full_data_soup.find(id="P5_RES_YEAR_BUILT"),
-    "residential_style": full_data_soup.find(id="P5_RES_STYLE")
+    "residential_style": full_data_soup.find(id="P5_RES_STYLE"),
+    "air_conditioner": full_data_soup.find(id="P5_RES_AIR_COND")
 }
 
 for field in fields:
