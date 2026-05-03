@@ -95,10 +95,12 @@ fields = {
     "assessment_price": full_data_soup.find(id="report_R71237002985465692"),
     "owner": full_data_soup.find(id="P5_OWNER_CUR"),
     "school_information": full_data_soup.find(id="report_R272557515384942239"),
-    "sq_feet": full_data_soup.find(id="P5_RES_SQ_FT_FIN_LIV")
+    "sq_feet": full_data_soup.find(id="P5_RES_SQ_FT_FIN_LIV"),
+    "year_built": full_data_soup.find(id="P5_RES_YEAR_BUILT"),
+    "residential_style": full_data_soup.find(id="P5_RES_STYLE")
 }
 
 for field in fields:
-    print(fields[field].get_text())
+    print(f"{field}: {fields[field].get_text().strip()}")
 
 
