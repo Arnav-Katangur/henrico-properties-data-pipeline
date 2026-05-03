@@ -99,7 +99,9 @@ fields = {
     "year_built": full_data_soup.find(id="P5_RES_YEAR_BUILT"),
     "residential_style": full_data_soup.find(id="P5_RES_STYLE"),
     "air_conditioner": full_data_soup.find(id="P5_RES_AIR_COND"),
-    "bedroom_count": full_data_soup.find(id="P5_RES_BEDROOMS")
+    "bedroom_count": full_data_soup.find(id="P5_RES_BEDROOMS"),
+    "full_bathrooms": full_data_soup.find(id="P5_RES_FULL_BATH"),
+    "half_bathrooms": full_data_soup.find(id="P5_RES_HALF_BATH")
 }
 
 for field in fields:
