@@ -104,7 +104,9 @@ fields = {
     "half_bathrooms": full_data_soup.find(id="P5_RES_HALF_BATH"),
     "fireplace": full_data_soup.find(id="P5_RES_FIREPLACE"),
     "no. of stories": full_data_soup.find(id="P5_RES_NUM_STORIES"),
-    "transfer info": full_data_soup.find(id="R71235786808465691")
+    "transfer info": full_data_soup.find(id="R71235786808465691"),
+    "basement": full_data_soup.find(id="P5_RES_BASEMENT"),
+    "finished basement": full_data_soup.find(id="P5_RES_FIN_BASEMENT")
 }
 
 for field in fields:
