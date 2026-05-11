@@ -109,11 +109,11 @@ fields = {
     "finished basement": full_data_soup.find(id="P5_RES_FIN_BASEMENT"),
     "floodplain": full_data_soup.find(id="P5_FLOODPLAIN"),
     "finished attic": full_data_soup.find(id="P5_RES_FINISHED_ATTIC"),
-    "additions": full_data_soup.find(id="R71237879046465693"),
     "neighborhood": full_data_soup.find(id="P5_NEIGHBORHOOD"),
     "exterior_walls": full_data_soup.find(id="P5_RES_EXT_WALLS"),
     "roof": full_data_soup.find(id="P5_RES_ROOF"),
-    "chimneys": full_data_soup.find(id="P5_NUM_CHIMNEYS")
+    "chimneys": full_data_soup.find(id="P5_NUM_CHIMNEYS"),
+    "total_rooms": full_data_soup.find(id="P5_RES_TOTAL_ROOMS")
 }
 
 for field in fields:
