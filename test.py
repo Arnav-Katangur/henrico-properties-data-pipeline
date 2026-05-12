@@ -113,7 +113,8 @@ fields = {
     "exterior_walls": full_data_soup.find(id="P5_RES_EXT_WALLS"),
     "roof": full_data_soup.find(id="P5_RES_ROOF"),
     "chimneys": full_data_soup.find(id="P5_NUM_CHIMNEYS"),
-    "total_rooms": full_data_soup.find(id="P5_RES_TOTAL_ROOMS")
+    "total_rooms": full_data_soup.find(id="P5_RES_TOTAL_ROOMS"),
+    "sketch_details": full_data_soup.find(id="R71258888584566206")
 }
 
 for field in fields:
