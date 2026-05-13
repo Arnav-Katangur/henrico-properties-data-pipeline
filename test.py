@@ -121,4 +121,12 @@ fields = {
 for field in fields:
     print(f"{field}: {fields[field].get_text().strip()}")
 
+plats_url = urllib.parse.urljoin(detail_page.url, "f?p=510101:52::::RP::")
+plats_page = session.get(plats_url)
 
+plat_links = [
+    a["href"]
+    for a in BeautifulSoup(plats_page.text, "html.parser").select('a[href*="/plats/"][href$=".pdf"]')
+]
+
+print(plat_links)
