@@ -129,4 +129,5 @@ plat_links = [
     for a in BeautifulSoup(plats_page.text, "html.parser").select('a[href*="/plats/"][href$=".pdf"]')
 ]
 
-print(plat_links)
+for i in plat_links:
+    print(i)
