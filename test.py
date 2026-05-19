@@ -116,8 +116,8 @@ fields = {
     "total_rooms": full_data_soup.find(id="P5_RES_TOTAL_ROOMS"),
     "sketch_details": full_data_soup.find(id="R71258888584566206"),
     "foundation_type": full_data_soup.find(id="P5_RES_BSMT_TYPE"),
-    "basement_garage": full_data_soup.find(id="P5_RES_BASEMENT_GAR")
-
+    "basement_garage": full_data_soup.find(id="P5_RES_BASEMENT_GAR"),
+    
 }
 
 for field in fields:
@@ -133,3 +133,15 @@ plat_links = [
 
 for i in plat_links:
     print(i)
+
+image_table = full_data_soup.find(id="R71233805899465688")
+image_sources = []
+
+if image_table:
+    for img in image_table.find_all("img", src=True):
+        src = img["src"].replace("\\", "/")
+        if src.startswith("/vision_web/photos/"):
+            image_sources.append(urllib.parse.urljoin(detail_page.url, src))
+
+for image_source in image_sources:
+    print(image_source)
