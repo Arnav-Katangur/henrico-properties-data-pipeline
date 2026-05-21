@@ -144,4 +144,7 @@ if image_table:
             image_sources.append(urllib.parse.urljoin(detail_page.url, src))
 
 for image_source in image_sources:
-    print(image_source)
+    if "sketch" in image_source:
+        print("Sketch:",  image_source)
+    else:
+        print("Photo of House:", image_source)
