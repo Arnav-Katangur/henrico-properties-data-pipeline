@@ -143,6 +143,7 @@ if image_table:
         if src.startswith("/vision_web/photos/"):
             image_sources.append(urllib.parse.urljoin(detail_page.url, src))
 
+print("\nHere are the images...")
 for image_source in image_sources:
     if "sketch" in image_source:
         print("Sketch:",  image_source)
